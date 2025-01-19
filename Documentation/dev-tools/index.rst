@@ -16,6 +16,7 @@ Documentation/dev-tools/testing-overview.rst
 
    testing-overview
    checkpatch
+   clang-format
    coccinelle
    sparse
    kcov
@@ -31,6 +32,10 @@ Documentation/dev-tools/testing-overview.rst
    kselftest
    kunit/index
    ktap
+   checkuapi
+   gpio-sloppy-logic-analyzer
+   autofdo
+   propeller
 
 
 .. only::  subproject and html

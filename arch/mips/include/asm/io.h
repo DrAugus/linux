@@ -125,11 +125,6 @@ static inline unsigned long isa_virt_to_bus(volatile void *address)
 	return virt_to_phys(address);
 }
 
-/*
- * Change "struct page" to physical address.
- */
-#define page_to_phys(page)	((dma_addr_t)page_to_pfn(page) << PAGE_SHIFT)
-
 void __iomem *ioremap_prot(phys_addr_t offset, unsigned long size,
 		unsigned long prot_val);
 void iounmap(const volatile void __iomem *addr);
@@ -159,7 +154,7 @@ void iounmap(const volatile void __iomem *addr);
  * address is not guaranteed to be usable directly as a virtual
  * address.
  *
- * This version of ioremap ensures that the memory is marked cachable by
+ * This version of ioremap ensures that the memory is marked cacheable by
  * the CPU.  Also enables full write-combining.	 Useful for some
  * memory-like regions on I/O busses.
  */
@@ -177,7 +172,7 @@ void iounmap(const volatile void __iomem *addr);
  * address is not guaranteed to be usable directly as a virtual
  * address.
  *
- * This version of ioremap ensures that the memory is marked uncachable
+ * This version of ioremap ensures that the memory is marked uncacheable
  * but accelerated by means of write-combining feature. It is specifically
  * useful for PCIe prefetchable windows, which may vastly improve a
  * communications performance. If it was determined on boot stage, what
